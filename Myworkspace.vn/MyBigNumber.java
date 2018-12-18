@@ -7,7 +7,7 @@ import java.util.Stack;
 /**
  * Sum two string class.
  */
-public class MyBigNumber {
+public class MyBigNumber implements RememberStep{
     private RememberStep rememberStep;
     
     public MyBigNumber() {
@@ -59,28 +59,26 @@ public class MyBigNumber {
         }
         return finalResult;
     }
-}
 
-interface RememberStep {
-    void sendMessage(String mString);
-}
-
-
-class MyBigNumberMain implements RememberStep{
-    /*
-     * Main function, take number strings from input
-     * example: sum(1,2)
-     * */
-    public static void main(String[] args) {
-
-        MyBigNumberMain main = new MyBigNumberMain();
-        MyBigNumber s = new MyBigNumber(main);
-        String result = s.sumNumber(args[1], args[2]);
-        System.out.print("Result: " + result);
+    interface RememberStep {
+        void sendMessage(String mString);
     }
 
-    public void sendMessage(String str) {
-        System.out.println(str);
-    }
+        public static void main(String[] args) {
 
+            MyBigNumberMain main = new MyBigNumberMain();
+            MyBigNumber s = new MyBigNumber(main);
+            String result = s.sumNumber(args[1], args[2]);
+            System.out.print("Result: " + result);
+        }
+
+        public void sendMessage(String str) {
+            System.out.println(str);
+        }
+
+    
 }
+
+
+
+
