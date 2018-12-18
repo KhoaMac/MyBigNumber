@@ -4,10 +4,8 @@ import java.util.Stack;
  *
  * @author leond
  */
-/**
- * Sum two string class.
- */
-public class MyBigNumber implements RememberStep{
+
+public class MyBigNumber {
     private RememberStep rememberStep;
     
     public MyBigNumber() {
@@ -46,39 +44,16 @@ public class MyBigNumber implements RememberStep{
             getUnit = getSum % 10;
 
             stepMsg = "Step" + (i + 1) + " : " + "\n" 
-                    + " Get" + " : " + stringContain1 + "\n" 
-                    + " Plus" + " : " + stringContain2 + "\n" 
                     + " Remember" + " : " + remember + "\n" 
-                    + " The result is" + " : " + getSum + "\n" 
-                    + " Write" + " : " + getUnit + "\n" 
-                    + " Remember" + " : " + remember;
+                    + " Take" + " : " + stringContain1 + "\n" 
+                    + " Plus" + " : " + stringContain2 + "\n" 
+                    + " Result of sum two digits" + " : " + getSum + "\n" 
+                    + " Write" + " : " + getUnit + "\n";
             
-            remember = getSum / 10;
+            remember = getSum / 10 ;
             finalResult = getUnit + finalResult;
             rememberStep.sendMessage(stepMsg);
         }
         return finalResult;
     }
-
-    interface RememberStep {
-        void sendMessage(String mString);
-    }
-
-        public static void main(String[] args) {
-
-            MyBigNumberMain main = new MyBigNumberMain();
-            MyBigNumber s = new MyBigNumber(main);
-            String result = s.sumNumber(args[1], args[2]);
-            System.out.print("Result: " + result);
-        }
-
-        public void sendMessage(String str) {
-            System.out.println(str);
-        }
-
-    
 }
-
-
-
-
