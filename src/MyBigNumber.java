@@ -23,20 +23,20 @@ public class MyBigNumber {
             return "Please input numeric string or positive number";
         }
 
-        String finalResult = "";                                                // String contain the final result 
-        String stepMsg = "";                                                  // chuỗi chứa các bước trong quá trình cộng
+        String finalResult = ""; // String contain the final result 
+        String stepMsg = ""; // chuỗi chứa các bước trong quá trình cộng
 
-        int getSum = 0;                                                         // variable get The Sum of two numbers
-        int getUnit = 0;                                                        // variable get The number per unit
-        int remember = 0;                                                       // variable remember The number when sumed greater than 9
+        int getSum = 0; // variable get The Sum of two numbers
+        int getUnit = 0;// variable get The number per unit
+        int remember = 0; // variable remember The number when sumed greater than 9
 
-        int stringContain1 = 0;                                                 // variable get the number in String 1
-        int stringContain2 = 0;                                                 // variable get the number in String 2
+        int stringContain1 = 0; // variable get the number in String 1
+        int stringContain2 = 0; // variable get the number in String 2
 
-        int lengthStr1 = str1.length();                                         // variable contain the length of String 1
-        int lengthStr2 = str2.length();                                         // variable contain the length of String 2
+        int lengthStr1 = str1.length(); // variable contain the length of String 1
+        int lengthStr2 = str2.length(); // variable contain the length of String 2
 
-        int lengthContain = lengthStr1 < lengthStr2 ? lengthStr2 : lengthStr1;  // variable contain the longest string of String 1 and String 2
+        int lengthContain = lengthStr1 < lengthStr2 ? lengthStr2 : lengthStr1; // variable contain the longest string of String 1 and String 2
 
         for (int i = 0; i < lengthContain; i++) {
             stringContain1 = i < lengthStr1 ? (str1.charAt(lengthStr1 - i - 1) - '0') : 0;
@@ -45,18 +45,30 @@ public class MyBigNumber {
             getSum = stringContain2 + stringContain1 + remember;
             getUnit = getSum % 10;
 
-            stepMsg = "Step" + (i + 1) + " : " + "\n" 
-                    + " Get" + " : " + stringContain1 + "\n" 
-                    + " Plus" + " : " + stringContain2 + "\n" 
-                    + " Remember" + " : " + remember + "\n" 
-                    + " The result is" + " : " + getSum + "\n" 
-                    + " Write" + " : " + getUnit + "\n" 
-                    + " Remember" + " : " + remember;
-            
+            if (remember == 0) {
+                stepMsg += "\n" + "Buoc " + (i + 1) + ": "
+                        + "Lay " + stringContain1
+                        + " cong " + stringContain2
+                        + " bang " + getSum + ""
+                        + " viet " + getUnit
+                        + " nho " + getSum/10 + "\n";
+            } else {
+                stepMsg += "\n" + "Buoc " + (i + 1) + ": "
+                        + "lay " + stringContain1
+                        + " cong " + stringContain2
+                        + " nho " + remember
+                        + " bang " + getSum
+                        + " viet " + getUnit
+                        + " nho " + remember + "\n";
+            }
+
             remember = getSum / 10;
             finalResult = getUnit + finalResult;
-            rememberStep.sendMessage(stepMsg);
+            if (remember > 0) {
+                lengthContain = lengthContain + 1;
+            } 
         }
+        rememberStep.sendMessage(stepMsg);
         return finalResult;
     }
 }
