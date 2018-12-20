@@ -20,6 +20,7 @@ https://drive.google.com/open?id=1Bnsvg7fsqnlaCL4j31ob_4ilQA2VipwF
 6) Nhap so thu 1: 3
 7) Nhap so thu 2: 9
    
-
+III) Testing:
+1) The test result is in folder test "testResult.png"
 
 
