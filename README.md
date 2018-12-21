@@ -20,6 +20,7 @@ II) This code can be only complied in console (CMD):
 
    
 III) Testing:
-1) The test result is in folder test "testResult.png"
+1) The test result is in folder test "testResult.png" and "testResultWithCoverage.png"
+
 
 
