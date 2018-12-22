@@ -2,18 +2,32 @@ import java.util.Scanner;
 
 public class MyBigNumberMain implements IReceiver {
 
+    /*
+     * Main file
+     * */
     public static void main(String[] args) {
 
-        MyBigNumberMain main = new MyBigNumberMain();
-        MyBigNumber s = new MyBigNumber(main);
-        Scanner sc = new Scanner(System.in);
+        IReceiver iReceiver = new IReceiver() {
+            @Override
+            public void sendMessage(String stepMsg) {
+                System.out.println(stepMsg);
+            }
+        };
+        MyBigNumber s = new MyBigNumber(iReceiver);
 
-        System.out.print("Nhap so thu nhat: ");
-        String num1 = sc.nextLine();
-        System.out.print("Nhap so thu hai: ");
-        String num2= sc.nextLine();
-        String result = s.sumNumber(num1, num2);
-        System.out.print("Ket Qua Cuoi Cung: " + result);
+        try {
+
+            String s1 = args[0];
+
+            String s2 = args[1];
+
+            String result = s.sumNumber(s1, s2);
+            System.out.println("Ket Qua La: " + result + "\n");
+
+
+        } catch (NumberFormatException e) {
+            System.out.println("\n" + e.getMessage() + "\n");
+        }
     }
 
     public void sendMessage(String str) {

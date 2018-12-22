@@ -7,19 +7,19 @@
  * Sum two string class.
  */
 public class MyBigNumber {
-    
-    private IReceiver IReceiver;
-    
+
+    private IReceiver ireceiver;
+
     public MyBigNumber() {}
-    
-    public MyBigNumber(final IReceiver IReceiver) {
-        this.IReceiver = IReceiver;
+
+    public MyBigNumber(final IReceiver ireceiver) {
+        this.ireceiver = ireceiver;
     }
-    
+
     /**
-      *sum function.
-      */
-    
+     *sum function.
+     */
+
     public String sumNumber(final String str1, final String str2) {
 
         if (str1.contains("-")) {
@@ -30,7 +30,7 @@ public class MyBigNumber {
             throw new NumberFormatException("So thu nhi phai la so nguyen duong");
         }
 
-        String finalResult = ""; // String contain the final result 
+        String finalResult = ""; // String contain the final result
         String stepMsg = ""; // chuỗi chứa các bước trong quá trình cộng
 
         int getSum = 0; // variable get The Sum of two numbers
@@ -43,14 +43,14 @@ public class MyBigNumber {
 
         int lengthStr1 = str1.length(); // variable contain the length of String 1
         int lengthStr2 = str2.length(); // variable contain the length of String 2
-        
-        char checkS1;
-        char checkS2;                          
 
-        int lengthContain = lengthStr1 < lengthStr2 ? lengthStr2 : lengthStr1; 
+        char checkS1;
+        char checkS2;
+
+        int lengthContain = lengthStr1 < lengthStr2 ? lengthStr2 : lengthStr1;
 
         for (i = 0; i < lengthContain; i++) {
-            
+
             checkS1 = i < lengthStr1 ? str1.charAt(i) : '0';
             checkS2 = i < lengthStr2 ? str2.charAt(i) : '0';
 
@@ -65,7 +65,7 @@ public class MyBigNumber {
                         + (str2.indexOf(checkS1) + 1)
                         + " cua so thu 2 khong phai la so");
             }
-            
+
             stringContain1 = i < lengthStr1 ? (str1.charAt(lengthStr1 - i - 1) - '0') : 0;
             stringContain2 = i < lengthStr2 ? (str2.charAt(lengthStr2 - i - 1) - '0') : 0;
 
@@ -91,22 +91,22 @@ public class MyBigNumber {
 
             remember = getSum / 10;
             finalResult = getUnit + finalResult;
-            
+
         }
-        
+
         if (remember > 0) {
             finalResult = remember + finalResult;
             stepMsg += "\n" + "Buoc " + (i + 1) + ": "
-                        + "lay " + 0
-                        + " cong " + 0
-                        + " nho " + 1
-                        + " bang " + 1
-                        + " viet " + 1
-                        + "\n";
-        } 
-        
-        IReceiver.sendMessage(stepMsg);
-        
+                    + "lay " + 0
+                    + " cong " + 0
+                    + " nho " + 1
+                    + " bang " + 1
+                    + " viet " + 1
+                    + "\n";
+        }
+
+        ireceiver.sendMessage(stepMsg);
+
         return finalResult;
     }
 }
