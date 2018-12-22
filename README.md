@@ -3,13 +3,13 @@
 
 I) Download software:
 1) Click this link below:
-   https://drive.google.com/open?id=1Bnsvg7fsqnlaCL4j31ob_4ilQA2VipwF
+   https://drive.google.com/open?id=1hYwQmUf_mBihjQbPzckV-cl2-gQp2bVV
 2) Video how to setup enviroment:
    https://youtu.be/uUehBj3WwIw
 NOTE: Before download and use this software, you have to install JRE first and setup java enviroment. Click this link to see the tutorial : How to instal JRE https://www.youtube.com/watch?v=Zx3ceLdFm64
 
 
-II) This code can be complied in console (CMD): 
+II) This code can be complied in console (CMD): (Clone this project and Open project by using IntelliJ IDE)
 1) Open cmd/PowerShell and dir into the MyBigNumber/src
 2) java -jar ~/MyBigNumber/src/MyBigNumber.jar number1 number2
 3) Example:
