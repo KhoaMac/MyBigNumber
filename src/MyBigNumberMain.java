@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MyBigNumberMain implements RememberStep{
+public class MyBigNumberMain implements IReceiver {
 
     public static void main(String[] args) {
 
@@ -12,9 +12,7 @@ public class MyBigNumberMain implements RememberStep{
         String num1 = sc.nextLine();
         System.out.print("Nhap so thu hai: ");
         String num2= sc.nextLine();
-
         String result = s.sumNumber(num1, num2);
-        System.out.print("sum" + " " + num1 + " " + num2 + "\n");
         System.out.print("Ket Qua Cuoi Cung: " + result);
     }
 

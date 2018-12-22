@@ -8,12 +8,12 @@
  */
 public class MyBigNumber {
     
-    private RememberStep rememberStep;
+    private IReceiver IReceiver;
     
     public MyBigNumber() {}
     
-    public MyBigNumber(final RememberStep rememberStep) {
-        this.rememberStep = rememberStep;
+    public MyBigNumber(final IReceiver IReceiver) {
+        this.IReceiver = IReceiver;
     }
     
     /**
@@ -105,7 +105,7 @@ public class MyBigNumber {
                         + "\n";
         } 
         
-        rememberStep.sendMessage(stepMsg);
+        IReceiver.sendMessage(stepMsg);
         
         return finalResult;
     }
