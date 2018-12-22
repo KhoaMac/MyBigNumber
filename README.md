@@ -4,9 +4,8 @@
 I) Download software:
 1) Click this link below:
    https://drive.google.com/open?id=1Bnsvg7fsqnlaCL4j31ob_4ilQA2VipwF
-2) Extract folder
-3) Open MyBigNumber folder
-4) Click MyBigNumber.exe
+2) Video how to setup enviroment:
+
 
 II) This code can be only complied in console (CMD): 
 1) Open cmd and dir into this folder
