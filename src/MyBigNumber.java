@@ -22,12 +22,23 @@ public class MyBigNumber {
 
     public String sumNumber(final String str1, final String str2) {
 
-        if (str1.contains("-")) {
-            throw new NumberFormatException("So thu nhat phai la so nguyen duong");
+        String s1 = str1;                       // chuỗi chứa giá trị của s1
+        String s2 = str2;                       // chuỗi chứa giá trị của s2
+
+        if ((str1 == null) || (str1.trim().isEmpty())) {
+            s1 = "0";
         }
 
-        if (str2.contains("-")) {
-            throw new NumberFormatException("So thu nhi phai la so nguyen duong");
+        if ((str2 == null) || (str2.trim().isEmpty())) {
+            s2 = "0";
+        }
+
+        if (s1.charAt(0) == '-') {
+            throw new NumberFormatException("Chua ho tro so am: " + str1);
+        }
+
+        if (s2.charAt(0) == '-') {
+            throw new NumberFormatException("Chua ho tro so am: " + str2);
         }
 
         String finalResult = ""; // String contain the final result
@@ -41,8 +52,8 @@ public class MyBigNumber {
         int stringContain1 = 0; // variable get the number in String 1
         int stringContain2 = 0; // variable get the number in String 2
 
-        int lengthStr1 = str1.length(); // variable contain the length of String 1
-        int lengthStr2 = str2.length(); // variable contain the length of String 2
+        int lengthStr1 = s1.length(); // variable contain the length of String 1
+        int lengthStr2 = s2.length(); // variable contain the length of String 2
 
         char checkS1;
         char checkS2;
@@ -51,23 +62,21 @@ public class MyBigNumber {
 
         for (i = 0; i < lengthContain; i++) {
 
-            checkS1 = i < lengthStr1 ? str1.charAt(i) : '0';
-            checkS2 = i < lengthStr2 ? str2.charAt(i) : '0';
+            checkS1 = i < lengthStr1 ? s1.charAt(i) : '0';
+            checkS2 = i < lengthStr2 ? s2.charAt(i) : '0';
 
             if (!(checkS1 >= '0' && checkS1 <= '9')) {
-                throw new NumberFormatException("Vi tri thu "
-                        + (str1.indexOf(checkS1) + 1)
-                        + " cua so thu 1 khong phai la so");
+                this.ireceiver.sendMessage("\nPlease not contain special sysmbols!: " + s1);
+                throw new ExNumberFormatException((s1.indexOf(checkS1) + 1));
             }
 
             if (!(checkS2 >= '0' && checkS2 <= '9')) {
-                throw new NumberFormatException("Vi tri thu "
-                        + (str2.indexOf(checkS1) + 1)
-                        + " cua so thu 2 khong phai la so");
+                this.ireceiver.sendMessage("\nPlease not contain special sysmbols!: " + s2);
+                throw new ExNumberFormatException((s2.indexOf(checkS2) + 1));
             }
 
-            stringContain1 = i < lengthStr1 ? (str1.charAt(lengthStr1 - i - 1) - '0') : 0;
-            stringContain2 = i < lengthStr2 ? (str2.charAt(lengthStr2 - i - 1) - '0') : 0;
+            stringContain1 = i < lengthStr1 ? (s1.charAt(lengthStr1 - i - 1) - '0') : 0;
+            stringContain2 = i < lengthStr2 ? (s2.charAt(lengthStr2 - i - 1) - '0') : 0;
 
             getSum = stringContain2 + stringContain1 + remember;
             getUnit = getSum % 10;

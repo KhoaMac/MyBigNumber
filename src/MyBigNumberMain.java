@@ -25,6 +25,8 @@ public class MyBigNumberMain implements IReceiver {
             System.out.println("Ket Qua La: " + result + "\n");
 
 
+        } catch (ExNumberFormatException e) {
+            System.out.println("\n" + e.getMessage() + "\n");
         } catch (NumberFormatException e) {
             System.out.println("\n" + e.getMessage() + "\n");
         }
