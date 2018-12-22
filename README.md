@@ -1,22 +1,19 @@
-# MyBigNumber
+# MyBigNumber: I used IntelliJ IDEA Community Edition to complied and run testcase
 ===========================================END-USERS
 
 I) Download software:
 1) Click this link below:
    https://drive.google.com/open?id=1Bnsvg7fsqnlaCL4j31ob_4ilQA2VipwF
 2) Video how to setup enviroment:
+   https://youtu.be/uUehBj3WwIw
+NOTE: Before download and use this software, you have to install JRE first and setup java enviroment.
 
 
-II) This code can be only complied in console (CMD): 
-1) Open cmd and dir into this folder
-2) Run:
-3) javac MyBigNumberMain.java
-4) java MyBigNumberMain
-5) example: 
-6) javac MyBigNumberMain.java
-7) java MyBigNumberMain
-8) Nhap so thu 1: 3
-9) Nhap so thu 2: 9
+II) This code can be complied in console (CMD): 
+1) Open cmd/PowerShell and dir into the MyBigNumber/src
+2) java -jar ~/MyBigNumber/src/MyBigNumber.jar number1 number2
+3) Example:
+4) java -jar C:/Users/leond/Desktop/MyBigNumber/MyBigNumber.jar 12 12
 
 III) Testing:
 1) The test result is in folder test "testResult.png" and "testResultWithCoverage.png"
@@ -41,5 +38,5 @@ II) Run:
 
 III) Test:
 1) Choose MyBigNumberTest.java, right click on it and choose Run 'MyBigNumberTest' with coverage
-2) See the result
+2) See the result in folder test/testResultWithCoverage.png
 
